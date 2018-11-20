@@ -1,0 +1,27 @@
+<animation-list
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+    <item android:drawable="@drawable/d1" android:duration="215"/>
+    <item android:drawable="@drawable/d2" android:duration="215"/>
+    <item android:drawable="@drawable/d3" android:duration="215"/>
+    <item android:drawable="@drawable/d4" android:duration="215"/>
+    <item android:drawable="@drawable/d_run1" android:duration="250"/>
+    <item android:drawable="@drawable/d_run2" android:duration="200"/>
+    <item android:drawable="@drawable/d_run3" android:duration="200"/>
+    <item android:drawable="@drawable/d_run4" android:duration="200"/>
+    <item android:drawable="@drawable/d_run5" android:duration="200"/>
+    <item android:drawable="@drawable/d_run6" android:duration="200"/>
+    <item android:drawable="@drawable/d_run7" android:duration="200"/>
+    <item android:drawable="@drawable/d_run8" android:duration="200"/>
+    <item android:drawable="@drawable/d_run9" android:duration="200"/>
+    <item android:drawable="@drawable/d_run10" android:duration="200"/>
+    <item android:drawable="@drawable/d_run2" android:duration="200"/>
+    <item android:drawable="@drawable/d_run3" android:duration="200"/>
+    <item android:drawable="@drawable/d_run4" android:duration="200"/>
+    <item android:drawable="@drawable/d_run5" android:duration="200"/>
+    <item android:drawable="@drawable/d_run6" android:duration="200"/>
+    <item android:drawable="@drawable/d_run7" android:duration="200"/>
+    <item android:drawable="@drawable/d_run8" android:duration="200"/>
+    <item android:drawable="@drawable/d_run9" android:duration="200"/>
+    <item android:drawable="@drawable/d_run10" android:duration="200"/>
+</animation-list>

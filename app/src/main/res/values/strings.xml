@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Demon herding</string>
+    <string name="Pit_Lord">Pit Lord</string>
+    <string name="HP">Health of sacrifice</string>
+    <string name="Amount">Amount</string>
+    <string name="Daemon">Number of Demons</string>
+    <string name="zero">0</string>
+    <string name="Needs">Needs</string>
+    <string name="Spare">Spare</string>
+    <string name="compute">Compute</string>
+</resources>

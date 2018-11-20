@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Демонение</string>
+    <string name="Pit_Lord">Пит Лорд</string>
+    <string name="HP">Здоровье жертвы</string>
+    <string name="Amount">Количество</string>
+    <string name="Daemon">Количество демонов</string>
+    <string name="zero">0</string>
+    <string name="Needs">Необходимо</string>
+    <string name="Spare">Лишние</string>
+    <string name="compute">Расчитать</string>
+</resources>
