@@ -81,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
         et_Amount = findViewById(R.id.et_Amount);
         et_Amount.setTypeface(liberationSerif_Typeface);
 
-
         tv_DaemonAmount = findViewById(R.id.tv_DaemonAmount);
         tv_DaemonAmount.setTypeface(liberationSerif_Typeface);
         tv_NeedsAmount = findViewById(R.id.tv_NeedsAmount);
