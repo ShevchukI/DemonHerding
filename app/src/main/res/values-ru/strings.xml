@@ -1,11 +1,15 @@
 <resources>
     <string name="app_name">Демонение</string>
     <string name="Pit_Lord">Пит Лорд</string>
-    <string name="HP">Здоровье жертвы</string>
+    <string name="HoS">Здоровье жертвы</string>
     <string name="Amount">Количество</string>
     <string name="Daemon">Количество демонов</string>
     <string name="zero">0</string>
     <string name="Needs">Необходимо</string>
     <string name="Spare">Лишние</string>
     <string name="compute">Расчитать</string>
+
+    <string name="pit_lord_empty">"Введите количество Пит Лордов!"</string>
+    <string name="HoS_empty">"Введите Здоровье жертвы!"</string>
+    <string name="Amount_empty">"Введите количество жертв!"</string>
 </resources>
