@@ -118,9 +118,9 @@ public class MainActivity extends AppCompatActivity {
         int xPit;
         int hpXamount;
         // Check empty fields
-       if(!checkFields()){
-           return;
-       }
+        if (!checkFields()) {
+            return;
+        }
 
         pitLord.setAmount(Integer.parseInt(et_PitAmount.getText().toString()));
         sacrifice.setHealth(Integer.parseInt(et_HPAmount.getText().toString()));
@@ -153,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clearFields() {
+        et_PitAmount.setText("");
         et_PitAmount.setTextColor(getResources().getColor(R.color.colorAccent));
         et_HPAmount.setText("");
         et_Amount.setText("");
@@ -161,19 +162,21 @@ public class MainActivity extends AppCompatActivity {
         tv_SpareAmount.setText("");
     }
 
-
-    @SuppressLint("ShowToast")
-    private boolean checkFields(){
-        if(TextUtils.isEmpty(et_PitAmount.getText().toString())){
-            Toast.makeText(getApplicationContext(), getResources().getString(R.string.pit_lord_empty), Toast.LENGTH_SHORT);
+    private boolean checkFields() {
+        Toast toast;
+        if (TextUtils.isEmpty(et_PitAmount.getText().toString())) {
+            toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.pit_lord_empty), Toast.LENGTH_SHORT);
+            toast.show();
             return false;
         }
-        if(TextUtils.isEmpty(et_HPAmount.getText().toString())){
-            Toast.makeText(getApplicationContext(), getResources().getString(R.string.HoS_empty), Toast.LENGTH_SHORT);
+        if (TextUtils.isEmpty(et_HPAmount.getText().toString())) {
+            toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.HoS_empty), Toast.LENGTH_SHORT);
+            toast.show();
             return false;
         }
-        if(TextUtils.isEmpty(et_Amount.getText().toString())){
-            Toast.makeText(getApplicationContext(), getResources().getString(R.string.Amount_empty), Toast.LENGTH_SHORT);
+        if (TextUtils.isEmpty(et_Amount.getText().toString())) {
+            toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.Amount_empty), Toast.LENGTH_SHORT);
+            toast.show();
             return false;
         }
         return true;
