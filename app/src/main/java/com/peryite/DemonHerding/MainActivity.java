@@ -25,13 +25,6 @@ public class MainActivity extends AppCompatActivity {
     private Creature demon;
     private Creature sacrifice;
 
-   /* TextView textView2;
-    TextView textView3;
-    TextView textView4;
-    TextView text_Daemon;
-    TextView text_Needs;
-    TextView text_Spare;*/
-
     private EditText et_PitAmount;
     private EditText et_HPAmount;
     private EditText et_Amount;
@@ -111,14 +104,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void computeAmount() {
-//        int pit = 0;
-//        int hp = 0;
-//        int amount = 0;
-//        int daemon = 0;
         int needs = 0;
         int spare = 0;
-        int xPit;
-        int hpXamount;
         // Check empty fields
         if (!checkFields()) {
             return;
@@ -133,25 +120,6 @@ public class MainActivity extends AppCompatActivity {
         tv_SpareAmount.setText(String.valueOf(spare));
         needs = creatureServices.calcNeedAmount(sacrifice.getAmount(), spare);
         tv_NeedsAmount.setText(String.valueOf(needs));
-        //Insert EditText into variables
-//        pitLord.setAmount(Integer.parseInt(et_PitAmount.getText().toString()));
-//        sacrifice.setHealth(Integer.parseInt(et_HPAmount.getText().toString()));
-//        sacrifice.setAmount(Integer.parseInt(et_Amount.getText().toString()));
-//        xPit = 50 * pit;
-//        hpXamount = hp * amount;
-//        if (hpXamount > xPit) {
-//            daemon = xPit / 35;
-//            et_PitAmount.setTextColor(getResources().getColor(R.color.coloryellow));
-//        } else if (hpXamount <= xPit)
-//            daemon = hpXamount / 35;
-//        spare = (hpXamount - (daemon * 35)) / hp;
-//        needs = amount - spare;
-//        String Daemon = Integer.toString(daemon);
-//        tv_DaemonAmount.setText(Daemon);
-//        String Spare = Integer.toString(spare);
-//        tv_SpareAmount.setText(Spare);
-//        String Needs = Integer.toString(needs);
-//        tv_NeedsAmount.setText(Needs);
     }
 
     public void clearFields() {
