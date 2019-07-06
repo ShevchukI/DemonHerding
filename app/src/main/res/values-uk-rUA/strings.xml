@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Демонарство</string>
     <string name="Pit_Lord">Демони Безодні</string>
-    <string name="HP">Здоров\'я Жертви</string>
+    <string name="HoS">Здоров\'я Жертви</string>
     <string name="Amount">Кількість</string>
     <string name="Daemon">Кількість Демонів</string>
     <string name="zero">0</string>

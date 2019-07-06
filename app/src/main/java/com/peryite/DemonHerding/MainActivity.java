@@ -4,8 +4,8 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -13,8 +13,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainActivity extends ActionBarActivity {
+import com.peryite.DemonHerding.EnityServices.CreatureServices;
+
+public class MainActivity extends AppCompatActivity {
     private AnimationDrawable daemonAnimationDrawable;
+    private CreatureServices creatureServices;
 
    /* TextView textView2;
     TextView textView3;
@@ -23,15 +26,13 @@ public class MainActivity extends ActionBarActivity {
     TextView text_Needs;
     TextView text_Spare;*/
 
-    EditText PitAmount;
-    EditText HPAmount;
-    EditText Amount;
-
-    TextView DaemonAmount;
-    TextView NeedsAmount;
-    TextView SpareAmount;
-
-    Button compute;
+   private EditText PitAmount;
+   private EditText HPAmount;
+   private EditText Amount;
+   private TextView DaemonAmount;
+   private TextView NeedsAmount;
+   private TextView SpareAmount;
+   private Button compute;
 
 
     @Override
@@ -41,46 +42,58 @@ public class MainActivity extends ActionBarActivity {
 
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_main);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
 
+        hideActionBar();
+        initView();
+
+        creatureServices = new CreatureServices();
+    }
+
+    private void initView() {
         final Typeface liberationSerif_Typeface = Typeface.createFromAsset(getAssets(), "LiberationSerif-Regular.ttf");
-        TextView textView = (TextView) findViewById(R.id.textView);
-        textView.setTypeface(liberationSerif_Typeface);
-        TextView textView2 = (TextView) findViewById(R.id.textView2);
-        textView2.setTypeface(liberationSerif_Typeface);
-        TextView textView3 = (TextView) findViewById(R.id.textView3);
-        textView3.setTypeface(liberationSerif_Typeface);
-        TextView textView4 = (TextView) findViewById(R.id.textView4);
-        textView4.setTypeface(liberationSerif_Typeface);
-        TextView text_Daemon = (TextView) findViewById(R.id.text_Daemon);
-        text_Daemon.setTypeface(liberationSerif_Typeface);
-        TextView text_Needs = (TextView) findViewById(R.id. text_Needs);
-        text_Needs.setTypeface(liberationSerif_Typeface);
-        TextView text_Spare = (TextView) findViewById(R.id.text_Spare);
-        text_Spare.setTypeface(liberationSerif_Typeface);
+        TextView tv_title = findViewById(R.id.tv_Title);
+        tv_title.setTypeface(liberationSerif_Typeface);
+        TextView tv_PitLord = findViewById(R.id.tv_PitLord);
+        tv_PitLord.setTypeface(liberationSerif_Typeface);
+        TextView tv_HoS = findViewById(R.id.tv_HoS);
+        tv_HoS.setTypeface(liberationSerif_Typeface);
+        TextView tv_Amount = findViewById(R.id.tv_Amount);
+        tv_Amount.setTypeface(liberationSerif_Typeface);
+        TextView tv_Daemon = findViewById(R.id.tv_Daemon);
+        tv_Daemon.setTypeface(liberationSerif_Typeface);
+        TextView tv_Needs = findViewById(R.id.tv_Needs);
+        tv_Needs.setTypeface(liberationSerif_Typeface);
+        TextView tv_Spare = findViewById(R.id.tv_Spare);
+        tv_Spare.setTypeface(liberationSerif_Typeface);
 
-        ImageView imageView = (ImageView) findViewById(R.id.imageView);
-        imageView.setBackgroundResource(R.drawable.demanimation);
+        ImageView imgv_Daemon =  findViewById(R.id.imgv_Daemon);
+        imgv_Daemon.setBackgroundResource(R.drawable.demanimation);
 
-        daemonAnimationDrawable = (AnimationDrawable) imageView.getBackground();
+        daemonAnimationDrawable = (AnimationDrawable) imgv_Daemon.getBackground();
         daemonAnimationDrawable.start();
 
-        PitAmount = (EditText) findViewById(R.id.PitAmount);
+        PitAmount = findViewById(R.id.et_PitAmount);
         PitAmount.setTypeface(liberationSerif_Typeface);
-        HPAmount = (EditText) findViewById(R.id.HPAmount);
+        HPAmount = findViewById(R.id.et_HPAmount);
         HPAmount.setTypeface(liberationSerif_Typeface);
-        Amount = (EditText) findViewById(R.id.Amount);
+        Amount =  findViewById(R.id.et_Amount);
         Amount.setTypeface(liberationSerif_Typeface);
 
-        DaemonAmount = (TextView) findViewById(R.id.DaemonAmount);
+        DaemonAmount = findViewById(R.id.tv_DaemonAmount);
         DaemonAmount.setTypeface(liberationSerif_Typeface);
-        NeedsAmount = (TextView) findViewById(R.id.NeedsAmount);
+        NeedsAmount = findViewById(R.id.tv_NeedsAmount);
         NeedsAmount.setTypeface(liberationSerif_Typeface);
-        SpareAmount = (TextView) findViewById(R.id.SpareAmount);
+        SpareAmount = findViewById(R.id.tv_SpareAmount);
         SpareAmount.setTypeface(liberationSerif_Typeface);
 
-        compute = (Button) findViewById(R.id.compute);
+        compute = findViewById(R.id.btn_Compute);
+    }
+
+    private void hideActionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
     }
 
     public void clickCompute (View view){
@@ -131,6 +144,5 @@ public class MainActivity extends ActionBarActivity {
         NeedsAmount.setText("");
         SpareAmount.setText("");
     }
-
 
 }
