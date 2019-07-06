@@ -1,13 +1,12 @@
 package com.peryite.DemonHerding;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
 import android.support.v7.app.ActionBar;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputFilter;
 import android.text.TextUtils;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,6 +16,7 @@ import android.widget.Toast;
 
 import com.peryite.DemonHerding.EnityServices.CreatureServices;
 import com.peryite.DemonHerding.Entity.Creature;
+import com.peryite.DemonHerding.Tools.InputFilterMinMax;
 
 public class MainActivity extends AppCompatActivity {
     private AnimationDrawable daemonAnimationDrawable;
@@ -84,8 +84,10 @@ public class MainActivity extends AppCompatActivity {
         et_PitAmount.setTextColor(getResources().getColor(R.color.colorAccent));
         et_HPAmount = findViewById(R.id.et_HPAmount);
         et_HPAmount.setTypeface(liberationSerif_Typeface);
+        et_HPAmount.setFilters(new InputFilter[]{ new InputFilterMinMax("1", "35")});
         et_Amount = findViewById(R.id.et_Amount);
         et_Amount.setTypeface(liberationSerif_Typeface);
+
 
         tv_DaemonAmount = findViewById(R.id.tv_DaemonAmount);
         tv_DaemonAmount.setTypeface(liberationSerif_Typeface);
