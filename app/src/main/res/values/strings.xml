@@ -8,4 +8,8 @@
     <string name="Needs">Needs</string>
     <string name="Spare">Spare</string>
     <string name="compute">Compute</string>
+
+    <string name="pit_lord_empty">"Input the number of Pit Lord!"</string>
+    <string name="HoS_empty">"Input Health of sacrifice!"</string>
+    <string name="Amount_empty">"Input the number of sacrifice!"</string>
 </resources>

@@ -5,13 +5,15 @@ import java.util.Objects;
 public class Creature {
     private String name;
     private int health;
+    private int amount;
 
     public Creature() {
     }
 
-    public Creature(String name, int health) {
+    public Creature(String name, int health, int amount) {
         this.name = name;
         this.health = health;
+        this.amount = amount;
     }
 
     public String getName() {
@@ -30,4 +32,11 @@ public class Creature {
         this.health = health;
     }
 
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
 }

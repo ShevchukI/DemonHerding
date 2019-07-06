@@ -8,4 +8,8 @@
     <string name="Needs">Необхідно</string>
     <string name="Spare">Зайві</string>
     <string name="compute">Розрахувати</string>
+
+    <string name="pit_lord_empty">"Введіть кількість Піт Лордів!"</string>
+    <string name="HoS_empty">"Введіть Здоров\'я Жертви!"</string>
+    <string name="Amount_empty">"Введіть кількість Жертв!"</string>
 </resources>

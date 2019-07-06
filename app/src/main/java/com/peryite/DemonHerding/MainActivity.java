@@ -1,5 +1,7 @@
 package com.peryite.DemonHerding;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
@@ -7,17 +9,21 @@ import android.support.v7.app.ActionBar;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.peryite.DemonHerding.EnityServices.CreatureServices;
+import com.peryite.DemonHerding.Entity.Creature;
 
 public class MainActivity extends AppCompatActivity {
     private AnimationDrawable daemonAnimationDrawable;
     private CreatureServices creatureServices;
+    private Creature pitLord;
+    private Creature demon;
+    private Creature sacrifice;
 
    /* TextView textView2;
     TextView textView3;
@@ -26,13 +32,12 @@ public class MainActivity extends AppCompatActivity {
     TextView text_Needs;
     TextView text_Spare;*/
 
-   private EditText PitAmount;
-   private EditText HPAmount;
-   private EditText Amount;
-   private TextView DaemonAmount;
-   private TextView NeedsAmount;
-   private TextView SpareAmount;
-   private Button compute;
+    private EditText et_PitAmount;
+    private EditText et_HPAmount;
+    private EditText et_Amount;
+    private TextView tv_DaemonAmount;
+    private TextView tv_NeedsAmount;
+    private TextView tv_SpareAmount;
 
 
     @Override
@@ -45,8 +50,11 @@ public class MainActivity extends AppCompatActivity {
 
         hideActionBar();
         initView();
-
+        pitLord = new Creature();
+        demon = new Creature();
+        sacrifice = new Creature();
         creatureServices = new CreatureServices();
+
     }
 
     private void initView() {
@@ -65,28 +73,32 @@ public class MainActivity extends AppCompatActivity {
         tv_Needs.setTypeface(liberationSerif_Typeface);
         TextView tv_Spare = findViewById(R.id.tv_Spare);
         tv_Spare.setTypeface(liberationSerif_Typeface);
-
-        ImageView imgv_Daemon =  findViewById(R.id.imgv_Daemon);
+        ImageView imgv_Daemon = findViewById(R.id.imgv_Daemon);
         imgv_Daemon.setBackgroundResource(R.drawable.demanimation);
 
         daemonAnimationDrawable = (AnimationDrawable) imgv_Daemon.getBackground();
         daemonAnimationDrawable.start();
 
-        PitAmount = findViewById(R.id.et_PitAmount);
-        PitAmount.setTypeface(liberationSerif_Typeface);
-        HPAmount = findViewById(R.id.et_HPAmount);
-        HPAmount.setTypeface(liberationSerif_Typeface);
-        Amount =  findViewById(R.id.et_Amount);
-        Amount.setTypeface(liberationSerif_Typeface);
+        et_PitAmount = findViewById(R.id.et_PitAmount);
+        et_PitAmount.setTypeface(liberationSerif_Typeface);
+        et_PitAmount.setTextColor(getResources().getColor(R.color.colorAccent));
+        et_HPAmount = findViewById(R.id.et_HPAmount);
+        et_HPAmount.setTypeface(liberationSerif_Typeface);
+        et_Amount = findViewById(R.id.et_Amount);
+        et_Amount.setTypeface(liberationSerif_Typeface);
 
-        DaemonAmount = findViewById(R.id.tv_DaemonAmount);
-        DaemonAmount.setTypeface(liberationSerif_Typeface);
-        NeedsAmount = findViewById(R.id.tv_NeedsAmount);
-        NeedsAmount.setTypeface(liberationSerif_Typeface);
-        SpareAmount = findViewById(R.id.tv_SpareAmount);
-        SpareAmount.setTypeface(liberationSerif_Typeface);
+        tv_DaemonAmount = findViewById(R.id.tv_DaemonAmount);
+        tv_DaemonAmount.setTypeface(liberationSerif_Typeface);
+        tv_NeedsAmount = findViewById(R.id.tv_NeedsAmount);
+        tv_NeedsAmount.setTypeface(liberationSerif_Typeface);
+        tv_SpareAmount = findViewById(R.id.tv_SpareAmount);
+        tv_SpareAmount.setTypeface(liberationSerif_Typeface);
 
-        compute = findViewById(R.id.btn_Compute);
+        Button compute = findViewById(R.id.btn_Compute);
+        Button clear = findViewById(R.id.btn_Clear);
+        compute.setOnClickListener(click -> computeAmount());
+        clear.setOnClickListener(click -> clearFields());
+
     }
 
     private void hideActionBar() {
@@ -96,53 +108,74 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void clickCompute (View view){
-        int pit = 0;
-        int hp = 0;
-        int amount = 0;
-        int daemon = 0;
+    private void computeAmount() {
+//        int pit = 0;
+//        int hp = 0;
+//        int amount = 0;
+//        int daemon = 0;
         int needs = 0;
         int spare = 0;
         int xPit;
         int hpXamount;
         // Check empty fields
-        if (TextUtils.isEmpty(PitAmount.getText().toString())
-                || TextUtils.isEmpty(HPAmount.getText().toString())
-                || TextUtils.isEmpty(Amount.getText().toString())) {
-            return;
-        }
-        PitAmount.setTextColor(getResources().getColor(R.color.colorAccent));
+       if(!checkFields()){
+           return;
+       }
 
+        pitLord.setAmount(Integer.parseInt(et_PitAmount.getText().toString()));
+        sacrifice.setHealth(Integer.parseInt(et_HPAmount.getText().toString()));
+        sacrifice.setAmount(Integer.parseInt(et_Amount.getText().toString()));
+        demon.setAmount(creatureServices.calcDemonAmount(pitLord, sacrifice));
+        tv_DaemonAmount.setText(String.valueOf(demon.getAmount()));
+        spare = creatureServices.calcSpareAmount(sacrifice, demon);
+        tv_SpareAmount.setText(String.valueOf(spare));
+        needs = creatureServices.calcNeedAmount(sacrifice.getAmount(), spare);
+        tv_NeedsAmount.setText(String.valueOf(needs));
         //Insert EditText into variables
-        pit = Integer.parseInt(PitAmount.getText().toString());
-        hp = Integer.parseInt(HPAmount.getText().toString());
-        amount = Integer.parseInt(Amount.getText().toString());
-        xPit = 50 * pit;
-        hpXamount = hp * amount;
-        if (hpXamount > xPit) {
-            daemon = xPit / 35;
-            PitAmount.setTextColor(getResources().getColor(R.color.coloryellow));
+//        pitLord.setAmount(Integer.parseInt(et_PitAmount.getText().toString()));
+//        sacrifice.setHealth(Integer.parseInt(et_HPAmount.getText().toString()));
+//        sacrifice.setAmount(Integer.parseInt(et_Amount.getText().toString()));
+//        xPit = 50 * pit;
+//        hpXamount = hp * amount;
+//        if (hpXamount > xPit) {
+//            daemon = xPit / 35;
+//            et_PitAmount.setTextColor(getResources().getColor(R.color.coloryellow));
+//        } else if (hpXamount <= xPit)
+//            daemon = hpXamount / 35;
+//        spare = (hpXamount - (daemon * 35)) / hp;
+//        needs = amount - spare;
+//        String Daemon = Integer.toString(daemon);
+//        tv_DaemonAmount.setText(Daemon);
+//        String Spare = Integer.toString(spare);
+//        tv_SpareAmount.setText(Spare);
+//        String Needs = Integer.toString(needs);
+//        tv_NeedsAmount.setText(Needs);
+    }
+
+    public void clearFields() {
+        et_PitAmount.setTextColor(getResources().getColor(R.color.colorAccent));
+        et_HPAmount.setText("");
+        et_Amount.setText("");
+        tv_DaemonAmount.setText("");
+        tv_NeedsAmount.setText("");
+        tv_SpareAmount.setText("");
+    }
+
+
+    @SuppressLint("ShowToast")
+    private boolean checkFields(){
+        if(TextUtils.isEmpty(et_PitAmount.getText().toString())){
+            Toast.makeText(getApplicationContext(), getResources().getString(R.string.pit_lord_empty), Toast.LENGTH_SHORT);
+            return false;
         }
-        else if (hpXamount <= xPit)
-            daemon = hpXamount / 35;
-        spare = (hpXamount-(daemon*35))/hp;
-        needs = amount-spare;
-        String Daemon = Integer.toString(daemon);
-        DaemonAmount.setText(Daemon);
-        String Spare = Integer.toString(spare);
-        SpareAmount.setText(Spare);
-        String Needs = Integer.toString(needs);
-        NeedsAmount.setText(Needs);
+        if(TextUtils.isEmpty(et_HPAmount.getText().toString())){
+            Toast.makeText(getApplicationContext(), getResources().getString(R.string.HoS_empty), Toast.LENGTH_SHORT);
+            return false;
+        }
+        if(TextUtils.isEmpty(et_Amount.getText().toString())){
+            Toast.makeText(getApplicationContext(), getResources().getString(R.string.Amount_empty), Toast.LENGTH_SHORT);
+            return false;
+        }
+        return true;
     }
-
-    public void clickClear (View view){
-        PitAmount.setText("");
-        PitAmount.setTextColor(getResources().getColor(R.color.colorAccent));
-        HPAmount.setText("");
-        Amount.setText("");
-        DaemonAmount.setText("");
-        NeedsAmount.setText("");
-        SpareAmount.setText("");
-    }
-
 }
