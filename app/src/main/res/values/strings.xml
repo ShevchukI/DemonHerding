@@ -1,15 +1,15 @@
 <resources>
     <string name="app_name">Demon herding</string>
-    <string name="Pit_Lord">Pit Lord</string>
-    <string name="HoS">Health of sacrifice</string>
-    <string name="Amount">Amount</string>
-    <string name="Daemon">Number of Demons</string>
+    <string name="pit_lord">Pit Lord</string>
+    <string name="health_of_sacrifice">Health of sacrifice</string>
+    <string name="amount">Amount</string>
+    <string name="demon">Number of Demons</string>
     <string name="zero">0</string>
-    <string name="Needs">Needs</string>
-    <string name="Spare">Spare</string>
+    <string name="needs">Needs</string>
+    <string name="spare">Spare</string>
     <string name="compute">Compute</string>
 
     <string name="pit_lord_empty">"Input the number of Pit Lord!"</string>
-    <string name="HoS_empty">"Input Health of sacrifice!"</string>
-    <string name="Amount_empty">"Input the number of sacrifice!"</string>
+    <string name="health_of_sacrifice_empty">"Input Health of sacrifice!"</string>
+    <string name="amount_empty">"Input the number of sacrifice!"</string>
 </resources>

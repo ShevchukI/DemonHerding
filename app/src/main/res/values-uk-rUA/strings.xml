@@ -1,15 +1,15 @@
 <resources>
     <string name="app_name">Демонарство</string>
-    <string name="Pit_Lord">Демони Безодні</string>
-    <string name="HoS">Здоров\'я Жертви</string>
-    <string name="Amount">Кількість</string>
-    <string name="Daemon">Кількість Демонів</string>
+    <string name="pit_lord">Демони Безодні</string>
+    <string name="health_of_sacrifice">Здоров\'я Жертви</string>
+    <string name="amount">Кількість</string>
+    <string name="demon">Кількість Демонів</string>
     <string name="zero">0</string>
-    <string name="Needs">Необхідно</string>
-    <string name="Spare">Зайві</string>
+    <string name="needs">Необхідно</string>
+    <string name="spare">Зайві</string>
     <string name="compute">Розрахувати</string>
 
     <string name="pit_lord_empty">"Введіть кількість Піт Лордів!"</string>
-    <string name="HoS_empty">"Введіть Здоров\'я Жертви!"</string>
-    <string name="Amount_empty">"Введіть кількість Жертв!"</string>
+    <string name="health_of_sacrifice_empty">"Введіть Здоров\'я Жертви!"</string>
+    <string name="amount_empty">"Введіть кількість Жертв!"</string>
 </resources>

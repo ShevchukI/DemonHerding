@@ -60,13 +60,13 @@ public class MainActivity extends AppCompatActivity {
         tv_HoS.setTypeface(liberationSerif_Typeface);
         TextView tv_Amount = findViewById(R.id.tv_Amount);
         tv_Amount.setTypeface(liberationSerif_Typeface);
-        TextView tv_Daemon = findViewById(R.id.tv_Daemon);
+        TextView tv_Daemon = findViewById(R.id.tv_demon);
         tv_Daemon.setTypeface(liberationSerif_Typeface);
         TextView tv_Needs = findViewById(R.id.tv_Needs);
         tv_Needs.setTypeface(liberationSerif_Typeface);
         TextView tv_Spare = findViewById(R.id.tv_Spare);
         tv_Spare.setTypeface(liberationSerif_Typeface);
-        ImageView imgv_Daemon = findViewById(R.id.imgv_Daemon);
+        ImageView imgv_Daemon = findViewById(R.id.iv_demon);
         imgv_Daemon.setBackgroundResource(R.drawable.demanimation);
 
         daemonAnimationDrawable = (AnimationDrawable) imgv_Daemon.getBackground();
@@ -89,8 +89,8 @@ public class MainActivity extends AppCompatActivity {
         tv_SpareAmount = findViewById(R.id.tv_SpareAmount);
         tv_SpareAmount.setTypeface(liberationSerif_Typeface);
 
-        Button compute = findViewById(R.id.btn_Compute);
-        Button clear = findViewById(R.id.btn_Clear);
+        Button compute = findViewById(R.id.btn_compute);
+        Button clear = findViewById(R.id.btn_clear);
         compute.setOnClickListener(click -> computeAmount());
         clear.setOnClickListener(click -> clearFields());
 
@@ -140,12 +140,12 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
         if (TextUtils.isEmpty(et_HPAmount.getText().toString())) {
-            toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.HoS_empty), Toast.LENGTH_SHORT);
+            toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.health_of_sacrifice_empty), Toast.LENGTH_SHORT);
             toast.show();
             return false;
         }
         if (TextUtils.isEmpty(et_Amount.getText().toString())) {
-            toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.Amount_empty), Toast.LENGTH_SHORT);
+            toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.amount_empty), Toast.LENGTH_SHORT);
             toast.show();
             return false;
         }
