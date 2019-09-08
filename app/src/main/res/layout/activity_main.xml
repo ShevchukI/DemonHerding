@@ -9,9 +9,9 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.peryite.DemonHerding.MainActivity">
+    tools:context="com.peryite.DemonHerding.mvp.view.MainActivity">
 
-    <TextView
+    <android.support.v7.widget.AppCompatTextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
         android:background="@drawable/title"
         android:gravity="center_horizontal"
         android:text="@string/app_name"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="20sp"
         android:textColor="@color/colorWhite"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -44,8 +44,8 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tv_PitLord"
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tv_pit_lord"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -53,15 +53,15 @@
                 android:textColor="@color/colorWhite"
                 android:textSize="18sp" />
 
-            <ImageView
-                android:id="@+id/iv_pitLord"
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/iv_pit_lord"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_creature_pit_lord" />
 
-            <EditText
-                android:id="@+id/et_PitAmount"
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/et_pit_lord_amount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/field"
@@ -77,7 +77,7 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <TextView
+            <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/tv_sacrifice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -86,14 +86,14 @@
                 android:textColor="@color/colorWhite"
                 android:textSize="18sp" />
 
-            <ImageView
+            <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/iv_sacrifice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_basic_first_aid_origin" />
 
-            <EditText
+            <android.support.v7.widget.AppCompatEditText
                 android:id="@+id/et_sacrifice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -110,7 +110,7 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <TextView
+            <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/tv_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -119,14 +119,14 @@
                 android:textColor="@color/colorWhite"
                 android:textSize="18sp" />
 
-            <ImageView
+            <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/iv_amount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:src="@drawable/ic_amount" />
 
-            <EditText
+            <android.support.v7.widget.AppCompatEditText
                 android:id="@+id/et_amount"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -148,18 +148,17 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout_input">
 
-        <TextView
-            android:id="@+id/tv_Needs"
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_need"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="serif-regular"
             android:text="@string/needs"
             android:textColor="@color/colorWhite"
             android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/tv_NeedsAmount"
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_need_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/fieldtext"
@@ -179,14 +178,14 @@
         app:layout_constraintRight_toLeftOf="@+id/linearLayout_spare"
         android:layout_marginTop="@dimen/activity_vertical_margin">
 
-        <ImageView
+        <android.support.v7.widget.AppCompatImageView
             android:id="@+id/iv_demon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/daemon" />
+            android:background="@drawable/demanimation" />
 
-        <TextView
+        <android.support.v7.widget.AppCompatTextView
             android:id="@+id/tv_demon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -196,8 +195,8 @@
             android:textColor="@color/colorWhite"
             android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/tv_DaemonAmount"
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_demon_amount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/fieldtext"
@@ -217,18 +216,17 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout_input">
 
-        <TextView
-            android:id="@+id/tv_Spare"
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_spare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="serif-regular"
             android:text="@string/spare"
             android:textColor="@color/colorWhite"
             android:textSize="18sp" />
 
-        <TextView
-            android:id="@+id/tv_SpareAmount"
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/tv_spare_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/fieldtext"
@@ -238,7 +236,7 @@
 
     </LinearLayout>
 
-    <Button
+    <android.support.v7.widget.AppCompatButton
         android:id="@+id/btn_compute"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -248,7 +246,7 @@
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:layout_marginBottom="@dimen/activity_vertical_margin"/>
 
-    <Button
+    <android.support.v7.widget.AppCompatButton
         android:id="@+id/btn_clear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

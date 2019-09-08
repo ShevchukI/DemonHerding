@@ -1,6 +1,4 @@
-package com.peryite.DemonHerding.Entity;
-
-import java.util.Objects;
+package com.peryite.DemonHerding.entity;
 
 public class Creature {
     private String name;

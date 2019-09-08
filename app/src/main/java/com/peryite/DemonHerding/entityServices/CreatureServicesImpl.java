@@ -1,21 +1,17 @@
-package com.peryite.DemonHerding.EnityServices;
+package com.peryite.DemonHerding.entityServices;
 
-import com.peryite.DemonHerding.Entity.Creature;
-import com.peryite.DemonHerding.R;
+import com.peryite.DemonHerding.entity.Creature;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class CreatureServices {
+public class CreatureServicesImpl implements CreatureServices{
 
     private Creature pitLord;
     private Creature demon;
     private Creature sacrifice;
 
-    public CreatureServices() {
+    public CreatureServicesImpl() {
     }
 
-    public CreatureServices(Creature pitLord, Creature demon, Creature sacrifice) {
+    public CreatureServicesImpl(Creature pitLord, Creature demon, Creature sacrifice) {
         this.pitLord = pitLord;
         this.demon = demon;
         this.sacrifice = sacrifice;
